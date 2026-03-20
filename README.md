@@ -4,10 +4,9 @@
 
 Secure authentication for Air web framework sites.
 
-* GitHub: https://github.com/feldroy/AirAuth/
-* PyPI package: https://pypi.org/project/AirAuth/
-* Created by: **[Audrey M. Roy Greenfeld](https://audrey.feldroy.com/)** | GitHub https://github.com/audreyfeldroy | PyPI https://pypi.org/user/audreyr/
-* Free software: MIT License
+* [GitHub](https://github.com/feldroy/AirAuth/) | [PyPI](https://pypi.org/project/AirAuth/) | [Documentation](https://feldroy.github.io/AirAuth/)
+* Created by [Audrey M. Roy Greenfeld](https://audrey.feldroy.com/) | GitHub [@audreyfeldroy](https://github.com/audreyfeldroy) | PyPI [@audreyfeldroy](https://pypi.org/user/audreyfeldroy/)
+* MIT License
 
 ## Features
 
