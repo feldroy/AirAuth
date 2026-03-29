@@ -20,10 +20,16 @@ classifiers = [
 ]
 license = {text = "MIT"}
 dependencies = [
+  "AirModel>=0.3.0",
+  "AirField>=0.4.0",
+  "argon2-cffi",
+  "starlette",
+  "itsdangerous",
+  "fastapi",
   "typer",
   "rich",
 ]
-requires-python = ">= 3.12"
+requires-python = ">= 3.13"
 
 [dependency-groups]
 dev = [
@@ -37,6 +43,7 @@ lint = [
 test = [
     "coverage",
     "pytest",
+    "pytest-asyncio",
 ]
 typecheck = [
     "ty",
@@ -95,7 +102,14 @@ exclude_also = [
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+asyncio_mode = "auto"
 
 [tool.uv]
 package = true
 default-groups = ["dev"]
+
+[tool.uv.sources]
+AirModel = { path = "../AirModel", editable = true }
+AirField = { path = "../AirField", editable = true }
+AirForm = { path = "../AirForm", editable = true }
+AirAdmin = { path = "../AirAdmin", editable = true }
