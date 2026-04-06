@@ -15,9 +15,14 @@ def test_init_auth_adds_middleware():
 
 
 def test_init_auth_middleware_order():
-    """SessionMiddleware added first, AuthMiddleware second (LIFO means Auth runs first on request)."""
+    """AuthMiddleware added first, SessionMiddleware second.
+
+    Starlette middleware is LIFO: the last added runs first on request.
+    SessionMiddleware must run first to decode the cookie before
+    AuthMiddleware reads the session.
+    """
     app = MagicMock()
     init_auth(app, secret_key="test-secret")
     calls = app.add_middleware.call_args_list
-    assert calls[0] == call(SessionMiddleware, secret_key="test-secret")
-    assert calls[1] == call(AuthMiddleware)
+    assert calls[0] == call(AuthMiddleware)
+    assert calls[1] == call(SessionMiddleware, secret_key="test-secret")

@@ -16,12 +16,13 @@ def _has_middleware(app, cls) -> bool:
 def init_auth(app, secret_key: str) -> None:
     """Wire up session + auth middleware in the correct order.
 
-    Middleware ordering (LIFO in Starlette):
-    - AuthMiddleware (outermost, runs first on request)
-    - SessionMiddleware (innermost, runs last on request, first on response)
+    Starlette middleware is LIFO: the LAST added runs FIRST on request.
+    AuthMiddleware needs the session to be decoded already, so
+    SessionMiddleware must run before it (i.e., be added AFTER it).
 
-    Skips SessionMiddleware if already registered (e.g. by the app).
+    Add order: AuthMiddleware first, then SessionMiddleware.
+    Request order: SessionMiddleware decodes cookie, AuthMiddleware reads it.
     """
+    app.add_middleware(AuthMiddleware)
     if not _has_middleware(app, SessionMiddleware):
         app.add_middleware(SessionMiddleware, secret_key=secret_key)
-    app.add_middleware(AuthMiddleware)

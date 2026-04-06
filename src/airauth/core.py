@@ -16,10 +16,14 @@ async def create_user(username: str, email: str, password: str = "") -> User:
     If password is empty, the user cannot log in via password auth
     (useful for OAuth-only accounts that may set a password later).
     """
+    from datetime import UTC, datetime
+
     return await User.create(
         username=username,
         email=email,
         password_hash=hash_password(password) if password else "",
+        is_active=True,
+        date_joined=datetime.now(UTC),
     )
 
 
