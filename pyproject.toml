@@ -20,8 +20,7 @@ classifiers = [
 ]
 license = {text = "MIT"}
 dependencies = [
-  "AirModel>=0.3.0",
-  "AirField>=0.4.0",
+  "air>=0.48.1",
   "argon2-cffi",
   "starlette",
   "itsdangerous",
@@ -109,7 +108,4 @@ package = true
 default-groups = ["dev"]
 
 [tool.uv.sources]
-AirModel = { path = "../AirModel", editable = true }
-AirField = { path = "../AirField", editable = true }
-AirForm = { path = "../AirForm", editable = true }
-AirAdmin = { path = "../AirAdmin", editable = true }
+air = { path = "../air", editable = true }

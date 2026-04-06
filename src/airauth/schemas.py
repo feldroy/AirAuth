@@ -4,7 +4,7 @@ These are plain BaseModel subclasses (not AirModel) to avoid registering
 phantom tables via AirModel.__init_subclass__.
 """
 
-from airfield import AirField
+from air import AirField
 from pydantic import BaseModel
 
 

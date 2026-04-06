@@ -7,7 +7,7 @@ Table names: airauth_user, airauth_user_permission, airauth_api_token.
 import hashlib
 from datetime import UTC, datetime
 
-from airmodel import AirField, AirModel
+from air import AirField, AirModel
 
 # Sentinel for global permissions (avoids NULL comparison issues in SQL)
 _GLOBAL = ""
