@@ -108,4 +108,4 @@ package = true
 default-groups = ["dev"]
 
 [tool.uv.sources]
-air = { path = "../air", editable = true }
+air = { git = "https://github.com/feldroy/air", branch = "main" }
